@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusLogic | Soluciones Inteligentes para Pymes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B1120', /* Muy oscuro */
+                        secondary: '#2563EB', /* Azul tech */
+                        accent: '#10B981', /* Verde éxito */
+                        light: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-pattern {
+            background-color: #0B1120;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='#1e293b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .chart-bg {
+            background-image: radial-gradient(#ffffff33 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .timeline-step {
+            position: relative;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 50px;
+            bottom: -30px;
+            width: 2px;
+            background: #E2E8F0;
+            z-index: 0;
+        }
+        .timeline-step:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800 font-sans antialiased">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-microchip text-secondary text-3xl mr-3"></i>
+                    <span class="font-black text-2xl tracking-tighter text-primary">Nexus<span class="text-secondary">Logic</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#servicios" class="text-gray-600 font-medium hover:text-secondary transition">Servicios</a>
+                    <a href="#portafolio" class="text-gray-600 font-medium hover:text-secondary transition">Portafolio</a>
+                    <a href="#metodologia" class="text-gray-600 font-medium hover:text-secondary transition">Metodología</a>
+                    <a href="#sobre-mi" class="text-gray-600 font-medium hover:text-secondary transition">El Ingeniero</a>
+                    <a href="https://wa.me/56988881934?text=Hola%20Sebasti%C3%A1n%2C%20quiero%20cotizar%20un%20proyecto." target="_blank" class="bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-gray-800 transition shadow-lg shadow-gray-500/30">Cotizar Proyecto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-32 pb-20 text-white min-h-[85vh] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="z-10">
+                    <div class="inline-block bg-secondary/20 border border-secondary/30 text-blue-300 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-6">
+                        <i class="fa-solid fa-bolt mr-1"></i> OPTIMIZACIÓN DIGITAL DE ALTO RENDIMIENTO
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+                        Menos procesos manuales, <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-accent">más rentabilidad real.</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        En <span class="font-bold text-white">NexusLogic</span>, creamos software de escritorio, bases de datos y robots virtuales (RPA) que automatizan la contabilidad, la logística y la operación de tu negocio. Herramientas a medida, robustas y sin licencias eternas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://wa.me/56988881934?text=Hola%2C%20me%20interesa%20automatizar%20mi%20empresa." target="_blank" class="bg-accent text-white text-center px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-emerald-500 transition shadow-lg shadow-emerald-500/30 flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-2xl mr-2"></i> Asesoría Gratuita
+                        </a>
+                        <a href="#portafolio" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-center px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-white/20 transition flex items-center justify-center">
+                            Ver Sistemas
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block relative">
+                    <!-- Dashboard Mockup Interactivo -->
+                    <div class="bg-[#1E293B] p-4 rounded-xl shadow-2xl border border-gray-700 transform rotate-1 hover:rotate-0 transition duration-500 relative z-10">
+                        <div class="flex space-x-2 mb-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                                <p class="text-gray-400 text-xs font-bold mb-1">VENTAS MENSUALES</p>
+                                <p class="text-2xl font-bold text-white">$14.5M <span class="text-emerald-400 text-sm ml-2">↑ 12%</span></p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                                <p class="text-gray-400 text-xs font-bold mb-1">TIEMPO AHORRADO</p>
+                                <p class="text-2xl font-bold text-white">45 hrs <span class="text-blue-400 text-sm ml-2">/ mes</span></p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 h-32 rounded-lg border border-gray-700 flex items-end p-2 space-x-2">
+                            <div class="bg-blue-500 w-full rounded-t-sm" style="height: 40%"></div>
+                            <div class="bg-blue-500 w-full rounded-t-sm" style="height: 60%"></div>
+                            <div class="bg-blue-500 w-full rounded-t-sm" style="height: 35%"></div>
+                            <div class="bg-emerald-500 w-full rounded-t-sm" style="height: 80%"></div>
+                            <div class="bg-emerald-500 w-full rounded-t-sm" style="height: 95%"></div>
+                        </div>
+                    </div>
+                    <!-- Decoraciones -->
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-500 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob animation-delay-2000"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-24 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-bold tracking-wider text-sm uppercase">Lo Que Hago</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-primary mt-2">Soluciones Tecnológicas a tu Medida</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">No necesitas pagar licencias mensuales carísimas en la nube. Construyo herramientas locales, seguras y exactamente como las necesitas.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Servicio 1: Apps de Escritorio -->
+                <div class="bg-light p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    <div class="w-16 h-16 bg-white shadow-md rounded-2xl flex items-center justify-center mb-8 relative z-10 group-hover:bg-secondary transition-colors">
+                        <i class="fa-solid fa-desktop text-secondary text-2xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-primary relative z-10">Aplicaciones de Escritorio</h3>
+                    <p class="text-gray-600 leading-relaxed relative z-10">Sistemas contables, calculadoras de costos y ERPs standalone (.exe) desarrollados en Python. No dependen de internet, tus datos quedan en tu servidor local de forma 100% segura.</p>
+                </div>
+
+                <!-- Servicio 2: RPA / Automatización -->
+                <div class="bg-light p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    <div class="w-16 h-16 bg-white shadow-md rounded-2xl flex items-center justify-center mb-8 relative z-10 group-hover:bg-accent transition-colors">
+                        <i class="fa-solid fa-robot text-accent text-2xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-primary relative z-10">Automatización (RPA)</h3>
+                    <p class="text-gray-600 leading-relaxed relative z-10">Robots virtuales que leen miles de PDFs, extraen datos (OCR), envían correos automáticos y llenan formularios solos. Deja que el software haga el trabajo aburrido y repetitivo.</p>
+                </div>
+
+                <!-- Servicio 3: Dashboards / BI -->
+                <div class="bg-light p-10 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    <div class="w-16 h-16 bg-white shadow-md rounded-2xl flex items-center justify-center mb-8 relative z-10 group-hover:bg-purple-600 transition-colors">
+                        <i class="fa-solid fa-chart-pie text-purple-600 text-2xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-primary relative z-10">Business Intelligence</h3>
+                    <p class="text-gray-600 leading-relaxed relative z-10">Macros VBA que hacen magia en Excel y Dashboards profesionales (Power BI / Python) con gráficos y KPIs en tiempo real para que tomes decisiones gerenciales viendo los números claros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio Interactivo (6 Casos) -->
+    <section id="portafolio" class="py-24 bg-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-bold tracking-wider text-sm uppercase">Tecnología Aplicada</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-primary mt-2">Casos de Éxito & Soluciones</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">Sistemas construidos con lógica empresarial, diseñados para resolver cuellos de botella reales en Pymes y Corporaciones.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- PROYECTOS REALES (3) -->
+                <!-- 1. Casa Costuras -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-emerald-800 to-teal-600 relative overflow-hidden chart-bg">
+                        <!-- Gráfico Simulado -->
+                        <div class="absolute bottom-0 left-0 w-full h-24 flex items-end px-4 space-x-1 opacity-70 group-hover:opacity-100 transition-opacity">
+                            <div class="w-1/6 bg-white/40 h-1/3 rounded-t-md"></div>
+                            <div class="w-1/6 bg-white/40 h-1/2 rounded-t-md"></div>
+                            <div class="w-1/6 bg-white/40 h-2/3 rounded-t-md"></div>
+                            <div class="w-1/6 bg-white/60 h-full rounded-t-md"></div>
+                            <div class="w-1/6 bg-white/80 h-5/6 rounded-t-md"></div>
+                            <div class="w-1/6 bg-white h-full rounded-t-md"></div>
+                        </div>
+                        <h3 class="absolute top-6 left-6 text-2xl font-bold text-white">ERP Pymes<br><span class="text-emerald-200 text-lg">Casa Costuras</span></h3>
+                        <i class="fa-solid fa-chart-line text-white/10 text-8xl absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs font-bold bg-blue-50 text-blue-700 px-2 py-1 rounded">Python GUI</span>
+                            <span class="text-xs font-bold bg-emerald-50 text-emerald-700 px-2 py-1 rounded">SQLite</span>
+                            <span class="text-xs font-bold bg-gray-100 text-gray-700 px-2 py-1 rounded">Dashboards</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Sistema contable standalone con licencias encriptadas. Registra ventas/gastos, calcula márgenes en tiempo real con gráficos 50/50 y exporta planillas filtradas a Excel automáticamente.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Calculadora LATAM -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-900 to-indigo-700 relative overflow-hidden chart-bg">
+                        <!-- Line chart simulado -->
+                        <svg class="absolute bottom-0 left-0 w-full h-32 opacity-50 group-hover:opacity-100 transition-opacity" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M0,100 L0,80 Q25,90 50,50 T100,20 L100,100 Z" fill="rgba(255,255,255,0.2)"></path>
+                            <path d="M0,80 Q25,90 50,50 T100,20" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2"></path>
+                        </svg>
+                        <h3 class="absolute top-6 left-6 text-2xl font-bold text-white">Costos & Fletes<br><span class="text-indigo-200 text-lg">Multi-País LATAM</span></h3>
+                        <i class="fa-solid fa-globe-americas text-white/10 text-8xl absolute -right-4 -bottom-4 group-hover:rotate-12 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs font-bold bg-indigo-50 text-indigo-700 px-2 py-1 rounded">Algoritmos</span>
+                            <span class="text-xs font-bold bg-gray-100 text-gray-700 px-2 py-1 rounded">Logística Int.</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Aplicación corporativa para conversión compleja de montos de facturación a USD. Aplica fórmulas logísticas dinámicas según el país (CL, MX, CO, PE, AR) y calcula fletes por kilo en segundos.</p>
+                    </div>
+                </div>
+
+                <!-- 3. RobotAutomate -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-rose-800 to-pink-600 relative overflow-hidden chart-bg">
+                        <h3 class="absolute top-6 left-6 text-2xl font-bold text-white">Robot OCR<br><span class="text-pink-200 text-lg">Extracción Masiva</span></h3>
+                        <i class="fa-solid fa-robot text-white/10 text-8xl absolute -right-4 -bottom-4 group-hover:-translate-y-2 transition-transform"></i>
+                        <div class="absolute bottom-6 left-6 flex space-x-2">
+                            <div class="w-8 h-8 rounded bg-white/20 flex items-center justify-center animate-pulse"><i class="fa-solid fa-file-pdf text-white"></i></div>
+                            <div class="w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-arrow-right text-white/50"></i></div>
+                            <div class="w-8 h-8 rounded bg-white/80 flex items-center justify-center"><i class="fa-solid fa-file-excel text-rose-800"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs font-bold bg-rose-50 text-rose-700 px-2 py-1 rounded">RPA Automations</span>
+                            <span class="text-xs font-bold bg-gray-100 text-gray-700 px-2 py-1 rounded">Procesamiento PDF</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Robot que escanea carpetas enteras de PDFs, extrae montos netos/IVA mediante tecnología OCR, valida Bill of Ladings y genera consolidaciones limpias sin intervención humana.</p>
+                    </div>
+                </div>
+
+                <!-- PROYECTOS "INVENTADOS" PERO DEMOSTRATIVOS -->
+                <!-- 4. Conciliación Bancaria -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-gray-600 relative overflow-hidden chart-bg">
+                        <div class="absolute right-6 top-8 w-24 h-24 rounded-full border-8 border-emerald-400 border-t-slate-300 border-r-slate-300 transform rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
+                        <h3 class="absolute top-6 left-6 text-2xl font-bold text-white">MatchBank AI<br><span class="text-gray-300 text-lg">Conciliación Auto</span></h3>
+                        <i class="fa-solid fa-building-columns text-white/10 text-8xl absolute -right-4 -bottom-4"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded">Finanzas B2B</span>
+                            <span class="text-xs font-bold bg-emerald-50 text-emerald-700 px-2 py-1 rounded">Data Matching</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Sistema de conciliación inteligente que cruza la cartola bancaria mensual (CSV) con los registros de facturas internas, marcando automáticamente los pagos exactos y resaltando discrepancias al instante.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Predictor de Inventario -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-violet-800 to-purple-600 relative overflow-hidden chart-bg">
+                        <svg class="absolute bottom-0 left-0 w-full h-24 opacity-60" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M0,100 L0,60 L20,70 L40,40 L60,50 L80,20 L100,30 L100,100 Z" fill="rgba(255,255,255,0.3)"></path>
+                        </svg>
+                        <h3 class="absolute top-6 left-6 text-2xl font-bold text-white">Stock Predictor<br><span class="text-purple-200 text-lg">Control de Inventario</span></h3>
+                        <i class="fa-solid fa-boxes-stacked text-white/10 text-8xl absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs font-bold bg-purple-50 text-purple-700 px-2 py-1 rounded">Análisis de Datos</span>
+                            <span class="text-xs font-bold bg-amber-50 text-amber-700 px-2 py-1 rounded">Retail</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Dashboard interactivo que no solo muestra stock actual, sino que analiza el histórico de ventas para enviar alertas tempranas (vía email/WhatsApp) cuando un producto clave está por agotarse.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Smart Onboarding HR -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-amber-600 to-orange-500 relative overflow-hidden chart-bg">
+                        <h3 class="absolute top-6 left-6 text-2xl font-bold text-white">HR Auto-Docs<br><span class="text-orange-200 text-lg">Recursos Humanos</span></h3>
+                        <i class="fa-solid fa-id-card-clip text-white/10 text-8xl absolute -right-4 -bottom-4 group-hover:-translate-x-2 transition-transform"></i>
+                        <div class="absolute bottom-6 right-6 flex space-x-1">
+                            <div class="w-6 h-6 bg-white/30 rounded-full"></div>
+                            <div class="w-6 h-6 bg-white/60 rounded-full"></div>
+                            <div class="w-6 h-6 bg-white rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs font-bold bg-amber-50 text-amber-700 px-2 py-1 rounded">Gestión Documental</span>
+                            <span class="text-xs font-bold bg-gray-100 text-gray-700 px-2 py-1 rounded">Automatización</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Herramienta que elimina el papeleo: ingresas los datos del nuevo empleado en una sola pantalla y el sistema autogenera el contrato PDF, crea las carpetas correspondientes y envía el mail de bienvenida.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa Estratégico (Metodología) -->
+    <section id="metodologia" class="py-24 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-accent font-bold tracking-wider text-sm uppercase">Tu Socio Tecnológico</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2 mb-4">No te entrego un archivo y desaparezco.</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Como Ingeniero, mi compromiso es que la herramienta funcione, sea adoptada por tu equipo y genere el retorno de inversión prometido. Así es nuestra ruta de trabajo:</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto relative px-4">
+                <!-- Línea central vertical (solo desktop) -->
+                <div class="hidden md:block absolute left-1/2 top-10 bottom-10 w-1 bg-gray-800 -ml-0.5"></div>
+
+                <div class="space-y-12">
+                    <!-- Paso 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                        <div class="md:w-5/12 text-center md:text-right pr-0 md:pr-8 mb-4 md:mb-0">
+                            <h3 class="text-2xl font-bold text-accent mb-2">1. Radiografía Operativa</h3>
+                            <p class="text-gray-400">Analizo tu proceso manual actual y calculo cuántas horas/dinero estás perdiendo por no automatizar. Validamos la viabilidad.</p>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-900 border-4 border-accent rounded-full flex items-center justify-center z-10 shadow-lg shadow-accent/20 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-magnifying-glass text-white"></i>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left pl-0 md:pl-8 mt-4 md:mt-0">
+                            <span class="text-xs font-bold bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700">Semana 1</span>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                        <div class="md:w-5/12 text-center md:text-right pr-0 md:pr-8 mb-4 md:mb-0 md:order-1 order-2 mt-4 md:mt-0">
+                            <span class="text-xs font-bold bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700">Semana 2-3</span>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-900 border-4 border-secondary rounded-full flex items-center justify-center z-10 shadow-lg shadow-secondary/20 group-hover:scale-110 transition md:order-2 order-1">
+                            <i class="fa-solid fa-code text-white"></i>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left pl-0 md:pl-8 md:order-3 order-3">
+                            <h3 class="text-2xl font-bold text-secondary mb-2">2. Desarrollo a Medida</h3>
+                            <p class="text-gray-400">Construyo la aplicación, el robot o la base de datos desde cero, adaptada 100% a tu forma de trabajo, no al revés.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                        <div class="md:w-5/12 text-center md:text-right pr-0 md:pr-8 mb-4 md:mb-0">
+                            <h3 class="text-2xl font-bold text-amber-500 mb-2">3. Piloto y Capacitación</h3>
+                            <p class="text-gray-400">Instalo el software en tu empresa. Capacito a tu equipo en persona o remoto. Corregimos detalles sobre la marcha.</p>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-900 border-4 border-amber-500 rounded-full flex items-center justify-center z-10 shadow-lg shadow-amber-500/20 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-users-gear text-white"></i>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left pl-0 md:pl-8 mt-4 md:mt-0">
+                            <span class="text-xs font-bold bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700">Semana 4</span>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                        <div class="md:w-5/12 text-center md:text-right pr-0 md:pr-8 mb-4 md:mb-0 md:order-1 order-2 mt-4 md:mt-0">
+                            <span class="text-xs font-bold bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700">Continuo</span>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-900 border-4 border-purple-500 rounded-full flex items-center justify-center z-10 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition md:order-2 order-1">
+                            <i class="fa-solid fa-headset text-white"></i>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left pl-0 md:pl-8 md:order-3 order-3">
+                            <h3 class="text-2xl font-bold text-purple-500 mb-2">4. Soporte y Mantenimiento</h3>
+                            <p class="text-gray-400">Te ofrezco pólizas de mantenimiento mensual. Si algo falla o requieres un nuevo reporte, tienes a un ingeniero de cabecera a un WhatsApp de distancia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseñas de Clientes -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-primary">Lo que dicen las empresas</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Reseña 1 -->
+                <div class="bg-light p-8 rounded-2xl border border-gray-100 shadow-sm relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 right-6"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-amber-400">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Sebastián nos construyó un sistema a medida que nos ahorra literalmente 3 días de cuadratura a fin de mes. Entendió nuestro negocio de inmediato y el hecho de no pagar licencias mensuales en la nube fue lo que nos hizo decidirnos."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-600">MJ</div>
+                        <div>
+                            <p class="font-bold text-primary text-sm">María José L.</p>
+                            <p class="text-xs text-gray-500">Gerenta, Pyme Textil</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reseña 2 -->
+                <div class="bg-light p-8 rounded-2xl border border-gray-100 shadow-sm relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 right-6"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-amber-400">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"El robot OCR que implementó en nuestra área operativa procesa más de 200 facturas en minutos. Lo que antes hacía un analista tipeando todo el día, ahora se hace solo y sin errores. Una inversión que se pagó sola el primer mes."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-600">CV</div>
+                        <div>
+                            <p class="font-bold text-primary text-sm">Carlos V.</p>
+                            <p class="text-xs text-gray-500">Jefe de Operaciones Logísticas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reseña 3 -->
+                <div class="bg-light p-8 rounded-2xl border border-gray-100 shadow-sm relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-4 right-6"></i>
+                    <div class="flex items-center space-x-1 mb-4 text-amber-400">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Teníamos un desastre con las tasas de cambio para distintos países. El aplicativo que nos diseñó NexusLogic unificó todo. Lo mejor es su servicio postventa; le escribes por un ajuste y responde como si fuera parte de la empresa."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-gray-600">PR</div>
+                        <div>
+                            <p class="font-bold text-primary text-sm">Patricio R.</p>
+                            <p class="text-xs text-gray-500">Director Comercial LATAM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí (El Ingeniero) -->
+    <section id="sobre-mi" class="py-24 bg-light border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <span class="text-secondary font-bold tracking-wider text-sm uppercase">Perfil Profesional</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-6">El Ingeniero detrás del Código.</h2>
+
+                    <p class="text-gray-600 mb-5 text-lg leading-relaxed font-medium">
+                        Soy Sebastián Morales, Ingeniero de Sistemas especialista en Datos y Automatización Continua.
+                    </p>
+
+                    <p class="text-gray-600 mb-5 text-lg leading-relaxed">
+                        Llevo más de 12 años liderando y operando en la trinchera corporativa de la logística internacional. He visto desde dentro cómo las empresas pierden millones al año porque sus equipos altamente capacitados dedican el 60% de su día a "copiar y pegar" datos en Excel.
+                    </p>
+
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                        Fundé <strong>NexusLogic</strong> porque creo firmemente que la automatización de nivel corporativo no debería ser un lujo de las multinacionales. Mi misión es llevar herramientas precisas, encriptadas y desarrolladas en Python a las Pymes y agencias que necesitan escalar rápido, sin tener que amarrarse a suscripciones mensuales abusivas. 
+                    </p>
+
+                    <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="bg-blue-50 p-3 rounded-full text-secondary"><i class="fa-solid fa-laptop-code text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-primary text-lg">Independencia Total</h4>
+                                <p class="text-sm text-gray-600">Software Standalone (.exe). Sin caídas de internet.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-emerald-50 p-3 rounded-full text-accent"><i class="fa-solid fa-shield-halved text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-primary text-lg">Seguridad de Datos</h4>
+                                <p class="text-sm text-gray-600">Tus números no van a la nube. Quedan en tu servidor local.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-secondary to-accent rounded-full blur-2xl opacity-20 translate-y-4"></div>
+                        <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl bg-gray-100">
+                            <!-- FOTO REAL DEL USUARIO -->
+                            <img src="data:image/jpeg;base64,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" alt="Sebastián Morales" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Badge flotante -->
+                        <div class="absolute bottom-6 -left-8 bg-white py-3 px-6 rounded-xl shadow-xl border border-gray-100 flex items-center space-x-3">
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-full"><i class="fa-solid fa-award text-xl"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase">Experiencia Comprobada</p>
+                                <p class="font-extrabold text-primary text-xl">+12 Años</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto / CTA -->
+    <section id="contacto" class="py-24 bg-primary text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8cGF0aCBkPSJNMCAwbDh2OHptOCAwTDAgOHoiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+Cjwvc3ZnPg==')]"></div>
+        <div class="max-w-3xl mx-auto px-4 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Es momento de soltar el Excel.</h2>
+            <p class="text-xl text-gray-300 mb-10">Cuéntame cuál es ese proceso manual que le hace perder horas a tu equipo. Te diré en nuestra primera reunión si es automatizable y cuánto te costará resolverlo para siempre.</p>
+
+            <a href="https://wa.me/56988881934?text=Hola%20Sebasti%C3%A1n%2C%20estoy%20en%20tu%20web%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20de%20automatizaci%C3%B3n%20para%20mi%20empresa." target="_blank" class="inline-flex items-center justify-center bg-accent hover:bg-emerald-500 text-white font-bold text-xl py-4 px-10 rounded-xl transition shadow-xl shadow-emerald-500/40 transform hover:-translate-y-1 w-full sm:w-auto">
+                <i class="fa-brands fa-whatsapp text-3xl mr-3"></i> Iniciar Chat en WhatsApp
+            </a>
+            <p class="mt-8 text-sm text-gray-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> Respuestas el mismo día hábil.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050914] border-t border-gray-800 text-gray-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-center items-center space-x-2 mb-6">
+                <i class="fa-solid fa-microchip text-gray-600 text-2xl"></i>
+                <span class="font-bold text-xl text-gray-300 tracking-tight">NexusLogic</span>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-white transition transform hover:scale-110 text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition transform hover:scale-110 text-2xl"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:contacto@nexuslogic.cl" class="hover:text-white transition transform hover:scale-110 text-2xl"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="text-sm">&copy; 2026 NexusLogic por Sebastián Morales. Ingeniería y Automatización.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
